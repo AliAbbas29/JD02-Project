@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/courses</property>
+        <property name="connection.username">Admin</property>
+        <property name="connection.password">36211996</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hbm2ddl.auto">create</property>
+
+        <mapping class="by.itacademy.entity.Address"/>
+        <mapping class="by.itacademy.entity.Instructor"/>
+        <mapping class="by.itacademy.entity.InstructorLang"/>
+        <mapping class="by.itacademy.entity.InstructorProg"/>
+        <mapping class="by.itacademy.entity.Course"/>
+
+    </session-factory>
+</hibernate-configuration>
