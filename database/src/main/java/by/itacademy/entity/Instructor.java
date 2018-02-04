@@ -14,7 +14,7 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "subject")
 @Entity
 @Table(name = "instructors")
-@ToString
+@ToString(exclude = "course")
 public class Instructor {
 
     @Id

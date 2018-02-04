@@ -11,7 +11,7 @@ import java.io.IOException;
 public class UServl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("username", new UserService().getDefaultUsername());
+        req.setAttribute("username", new SomeService().writeExample());
         req.getRequestDispatcher("WEB-INF/jsp/name.jsp").forward(req, resp);
     }
 }

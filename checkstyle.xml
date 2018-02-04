@@ -183,11 +183,11 @@
         <module name="CovariantEquals"/>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-        <module name="MagicNumber">
-            <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2, 10, 100"/>
-            <property name="ignoreHashCodeMethod" value="true"/>
-            <property name="ignoreAnnotation" value="true"/>
-        </module>
+        <!--<module name="MagicNumber">-->
+            <!--<property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2, 10, 100"/>-->
+            <!--<property name="ignoreHashCodeMethod" value="true"/>-->
+            <!--<property name="ignoreAnnotation" value="true"/>-->
+        <!--</module>-->
         <module name="MissingSwitchDefault"/>
         <!-- <module name="RedundantThrows"/>-->
         <!--module name="IllegalThrows"/-->

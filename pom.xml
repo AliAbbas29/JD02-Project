@@ -48,9 +48,9 @@
     </dependency>
   </dependencies>
   <modules>
-    <module>database</module>
     <module>web</module>
     <module>service</module>
+    <module>database</module>
   </modules>
 
   <reporting>

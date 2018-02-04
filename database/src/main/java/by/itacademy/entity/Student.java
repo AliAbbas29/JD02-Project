@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"course", "grades"})
 @Entity
 @Table(name = "students")
 public class Student {

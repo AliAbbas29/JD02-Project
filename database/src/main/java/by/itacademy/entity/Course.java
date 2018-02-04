@@ -4,6 +4,7 @@ package by.itacademy.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "course")
+@ToString
 public class Course {
 
     @Id
