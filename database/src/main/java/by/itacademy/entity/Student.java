@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,9 +24,22 @@ public class Student {
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @Column(name="phonenumber",nullable = true)
+    @Column(name = "phonenumber", nullable = true)
     private long phonenumber;
 
     private Address address;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+    public Student(String name, long phonenumber, Address address, Course course) {
+        this.name = name;
+        this.phonenumber = phonenumber;
+        this.address = address;
+        this.course = course;
+    }
+
+    @OneToMany(mappedBy = "student")
+    Set<Grade> grades = new HashSet<>();
 }

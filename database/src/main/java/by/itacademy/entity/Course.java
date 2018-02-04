@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -45,7 +47,11 @@ public class Course {
     @JoinColumn(name = "instructor_id", nullable = false)
     private Instructor instructor;
 
+    @OneToMany(mappedBy = "course")
+    private Set<Student> students = new HashSet<>();
 
+    @OneToMany(mappedBy = "course")
+    private Set<Grade> grades = new HashSet<>();
 
     public Course(Subject subject, String specialization, Address address,Instructor instructor) {
         this.subject = subject;

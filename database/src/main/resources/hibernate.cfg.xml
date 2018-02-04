@@ -18,6 +18,8 @@
         <mapping class="by.itacademy.entity.InstructorLang"/>
         <mapping class="by.itacademy.entity.InstructorProg"/>
         <mapping class="by.itacademy.entity.Course"/>
+        <mapping class="by.itacademy.entity.Student"/>
+        <mapping class="by.itacademy.entity.Grade"/>
 
     </session-factory>
 </hibernate-configuration>
