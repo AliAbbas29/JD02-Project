@@ -11,14 +11,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="grades")
+@Table(name = "grades")
 public class Grade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="value")
+    @Column(name = "value")
     private Integer value;
 
     @ManyToOne

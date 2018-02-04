@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 
@@ -12,9 +11,9 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name ="subject")
+@DiscriminatorColumn(name = "subject")
 @Entity
-@Table(name ="instructors")
+@Table(name = "instructors")
 @ToString
 public class Instructor {
 
@@ -22,6 +21,6 @@ public class Instructor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(mappedBy = "instructor" )
-    public Course course;
+    @OneToOne(mappedBy = "instructor")
+    private Course course;
 }

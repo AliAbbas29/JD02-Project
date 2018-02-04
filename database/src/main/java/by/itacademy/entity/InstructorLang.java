@@ -1,11 +1,15 @@
 package by.itacademy.entity;
 
-import lombok.*;
+
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -13,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("language")
 @ToString(callSuper = true)
-public class InstructorLang extends Instructor{
+public class InstructorLang extends Instructor {
 
     @Column(name = "name", unique = true, nullable = false)
     private String name;
@@ -21,7 +25,7 @@ public class InstructorLang extends Instructor{
     @Column(name = "specialization", nullable = false)
     private String specialization;
 
-    @Column(name ="experience_years",nullable = true)
+    @Column(name = "experience_years", nullable = true)
     private int experience;
 
     public InstructorLang(String name, String specialization, int experience) {

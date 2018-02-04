@@ -5,7 +5,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,5 +43,5 @@ public class Student {
     }
 
     @OneToMany(mappedBy = "student")
-    Set<Grade> grades = new HashSet<>();
+    private Set<Grade> grades = new HashSet<>();
 }
