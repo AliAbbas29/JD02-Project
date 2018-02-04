@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="grade")
+@Table(name="grades")
 public class Grade {
 
     @Id
