@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = {"course", "grades"})
+@ToString(exclude = {"grades","courses"})
 @Entity
 @Table(name = "students")
 public class Student {
@@ -26,22 +26,30 @@ public class Student {
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @Column(name = "phonenumber", nullable = true)
+    @Column(name = "phonenumber")
     private long phonenumber;
 
     private Address address;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @ManyToMany
+    @JoinTable(name = "students_courses",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private Set<Course> courses = new HashSet<>();
 
-    public Student(String name, long phonenumber, Address address, Course course) {
+    public Student(String name, long phonenumber, Address address) {
         this.name = name;
         this.phonenumber = phonenumber;
         this.address = address;
-        this.course = course;
     }
 
     @OneToMany(mappedBy = "student")
     private Set<Grade> grades = new HashSet<>();
+
+    @OneToMany(mappedBy = "student")
+    private Set<Review> reviews = new HashSet<>();
+
+    public void addCourse(Course course){
+        courses.add(course);
+    }
 }

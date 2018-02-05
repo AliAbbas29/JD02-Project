@@ -27,7 +27,7 @@ public class Course {
     @Column(name = "subject", nullable = false)
     private Subject subject;
 
-    @Column(name = "specialization", nullable = true)
+    @Column(name = "specialization")
     private String specialization;
 
 //    @Column(name = "start_date")
@@ -47,11 +47,18 @@ public class Course {
     @JoinColumn(name = "instructor_id", nullable = false)
     private Instructor instructor;
 
-    @OneToMany(mappedBy = "course")
+    @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
     @OneToMany(mappedBy = "course")
     private Set<Grade> grades = new HashSet<>();
+
+    @OneToMany(mappedBy = "course")
+    private Set<Review> reviews = new HashSet<>();
+
+    public void addStudent(Student student){
+        students.add(student);
+    }
 
     public Course(Subject subject, String specialization, Address address, Instructor instructor) {
         this.subject = subject;

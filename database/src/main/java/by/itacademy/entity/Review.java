@@ -1,43 +1,37 @@
 package by.itacademy.entity;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
-@Table(name = "grades")
 @ToString
-public class Grade {
+@Entity
+@Table(name ="reviews")
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
-    @Column(name = "value")
-    private Integer value;
+    @Column(name = "review")
+    private String review;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name="student_id")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name="course_id")
     private Course course;
 
-    @OneToMany(mappedBy = "course")
-    Set<Review> reviews = new HashSet<>();
-
-    public Grade(Integer value, Student student, Course course) {
-        this.value = value;
+    public Review(String review, Student student, Course course) {
+        this.review = review;
         this.student = student;
         this.course = course;
     }

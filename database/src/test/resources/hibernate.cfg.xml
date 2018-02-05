@@ -20,5 +20,6 @@
         <mapping class="by.itacademy.entity.Course"/>
         <mapping class="by.itacademy.entity.Student"/>
         <mapping class="by.itacademy.entity.Grade"/>
+        <mapping class="by.itacademy.entity.Review"/>
     </session-factory>
 </hibernate-configuration>
