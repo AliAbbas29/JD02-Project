@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name ="reviews")
+@Table(name = "reviews")
 public class Review {
 
     @Id
@@ -23,11 +23,11 @@ public class Review {
     private String review;
 
     @ManyToOne
-    @JoinColumn(name="student_id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name="course_id")
+    @JoinColumn(name = "course_id")
     private Course course;
 
     public Review(String review, Student student, Course course) {

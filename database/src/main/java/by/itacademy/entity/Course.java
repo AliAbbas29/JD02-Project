@@ -56,7 +56,7 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private Set<Review> reviews = new HashSet<>();
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         students.add(student);
     }
 

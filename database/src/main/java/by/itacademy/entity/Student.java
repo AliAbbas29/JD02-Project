@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = {"grades","courses"})
+@ToString(exclude = {"grades", "courses"})
 @Entity
 @Table(name = "students")
 public class Student {
@@ -49,7 +49,7 @@ public class Student {
     @OneToMany(mappedBy = "student")
     private Set<Review> reviews = new HashSet<>();
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         courses.add(course);
     }
 }

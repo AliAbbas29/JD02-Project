@@ -15,8 +15,8 @@ public class CourseMapping {
         session.save(sue);
         Course german = new Course(Subject.Language, "german", new Address("GOMEL", "Gik 99", 98), sue);
         session.save(german);
-        Student sam = new Student("Sam",80447019375L, new Address("Minsk","Vic.Sq 14", 154));
-        Student max = new Student("Max",80293931469L, new Address("Minsk","Lidskaya 33", 76));
+        Student sam = new Student("Sam", 80447019375L, new Address("Minsk", "Vic.Sq 14", 154));
+        Student max = new Student("Max", 80293931469L, new Address("Minsk", "Lidskaya 33", 76));
         sam.addCourse(german);
         max.addCourse(german);
         session.save(sam);

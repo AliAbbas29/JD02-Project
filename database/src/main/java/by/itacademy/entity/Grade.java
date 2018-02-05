@@ -34,7 +34,7 @@ public class Grade {
     private Course course;
 
     @OneToMany(mappedBy = "course")
-    Set<Review> reviews = new HashSet<>();
+    private Set<Review> reviews = new HashSet<>();
 
     public Grade(Integer value, Student student, Course course) {
         this.value = value;
