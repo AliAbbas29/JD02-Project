@@ -1,6 +1,10 @@
 package by.itacademy;
 
-import by.itacademy.entity.*;
+import by.itacademy.entity.Address;
+import by.itacademy.entity.Course;
+import by.itacademy.entity.InstructorLang;
+import by.itacademy.entity.Student;
+import by.itacademy.entity.Subject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
