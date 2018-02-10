@@ -33,7 +33,7 @@ public abstract class BaseDao<T> {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.update(entity);
-        session.getTransaction();
+        session.getTransaction().commit();
         session.close();
         sessionFactory.close();
     }
