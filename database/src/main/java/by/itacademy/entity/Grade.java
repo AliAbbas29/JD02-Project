@@ -13,10 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -40,9 +37,6 @@ public class Grade {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
-
-    @OneToMany(mappedBy = "course")
-    private Set<Review> reviews = new HashSet<>();
 
     public Grade(Integer value, Student student, Course course) {
         this.value = value;
