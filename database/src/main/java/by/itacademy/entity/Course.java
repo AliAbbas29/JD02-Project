@@ -29,7 +29,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "course")
-@ToString(exclude = {"students","grades","reviews"})
+@ToString(exclude = {"students", "grades", "reviews"})
 public class Course {
 
     @Id

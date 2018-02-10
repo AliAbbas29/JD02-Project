@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Username</title>
+    <title>SearchResult</title>
 </head>
 <body>
-    ${requestScope.username}
+${requestScope.instructors}
 </body>
 </html>
