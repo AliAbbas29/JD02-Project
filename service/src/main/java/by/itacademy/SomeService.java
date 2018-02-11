@@ -1,7 +1,9 @@
 package by.itacademy;
 
 import by.itacademy.dao.InstructorDao;
+import by.itacademy.entity.Course;
 import by.itacademy.entity.Instructor;
+import by.itacademy.entity.Subject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,15 +17,27 @@ class SomeService {
         return instructor;
     }
 
-    List<Instructor> findByFilter(int offset, int limit) {
+    static List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List<Instructor> instructor = session.createQuery("select i from Instructor i").setFirstResult(offset).setMaxResults(limit).getResultList();
-        instructor.forEach(System.out::println);
+        List<Course> courses = session.createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit").setParameter("subj", subject)
+                .setParameter("spec", specialization)
+                .setParameter("cit", city)
+                .setFirstResult(offset)
+                .setMaxResults(limit).getResultList();
+        courses.forEach(System.out::println);
+        //Subject.valueOf(specialization);
+        //session.createQuery("select c.specialization from Course c").setFirstResult(offset).setMaxResults(limit).getResultList().forEach(System.out::println);
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
-        return instructor;
+        return courses;
+    }
+
+    public static void main(String[] args) {
+
+        Subject subject = Subject.valueOf("Programming");
+        findByFilter(subject, "java", "London", 0, 5);
     }
 }
