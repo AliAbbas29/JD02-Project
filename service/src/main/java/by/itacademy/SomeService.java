@@ -11,7 +11,7 @@ import java.util.List;
 class SomeService {
 
 
-    static List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
+    List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -22,16 +22,20 @@ class SomeService {
                 .setMaxResults(limit).getResultList();
         courses.forEach(System.out::println);
         //Subject.valueOf(specialization);
-        //session.createQuery("select c.specialization from Course c").setFirstResult(offset).setMaxResults(limit).getResultList().forEach(System.out::println);
+        int id = 2;
+        session.createQuery("select c from Course c where c.id=:set").setParameter("set", id).setFirstResult(offset).setMaxResults(limit).getResultList().forEach(System.out::println);
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
         return courses;
     }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//
+//        System.out.println(getNoOfRecords(new SomeService().findByFilter(Subject.Programming,"java","London",0,5)));
+//    }
 
-        Subject subject = Subject.valueOf("Programming");
-        findByFilter(subject, "java", "London", 0, 5);
+    int getNoOfRecords(List<Course> courses) {
+        return courses.size();
     }
 }

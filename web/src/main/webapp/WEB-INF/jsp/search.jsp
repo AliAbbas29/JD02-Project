@@ -107,6 +107,7 @@
                     <select class="form-dropdown" id="input_11" name="dropdown2" style="width:150px;" data-component="dropdown">
                         <option value="Delhi"> Delhi </option>
                         <option value="London"> London </option>
+                        <option value="Minsk"> Minsk </option>
                         <option value="Moscow"> Moscow </option>
                         <option value="Rom"> Rom </option>
                         <%--<option selected="" value=""> </option>--%>
