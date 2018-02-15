@@ -9,10 +9,8 @@ import java.io.IOException;
 
 @WebServlet("/search")
 public class Search extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/jsp/search.jsp").forward(req, resp);
     }
 }
-
