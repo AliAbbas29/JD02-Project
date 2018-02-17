@@ -21,21 +21,18 @@ class SomeService {
                 .setFirstResult(offset)
                 .setMaxResults(limit).getResultList();
         courses.forEach(System.out::println);
-        //Subject.valueOf(specialization);
-        int id = 2;
-        session.createQuery("select c from Course c where c.id=:set").setParameter("set", id).setFirstResult(offset).setMaxResults(limit).getResultList().forEach(System.out::println);
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
         return courses;
     }
 
-//    public static void main(String[] args) {
-//
-//        System.out.println(getNoOfRecords(new SomeService().findByFilter(Subject.Programming,"java","London",0,5)));
-//    }
+    public static void main(String[] args) {
 
-    int getNoOfRecords(List<Course> courses) {
+        System.out.println(getNoOfRecords(new SomeService().findByFilter(Subject.Programming, "java", "London", 0, 5)));
+    }
+
+    static int getNoOfRecords(List<Course> courses) {
         return courses.size();
     }
 }

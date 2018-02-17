@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("language")
+@DiscriminatorValue("Language")
 @ToString(callSuper = true)
 public class InstructorLang extends Instructor {
 

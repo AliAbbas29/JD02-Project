@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @Setter
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("programming")
+@DiscriminatorValue("Programming")
 @ToString(callSuper = true)
 public class InstructorProg extends Instructor {
 

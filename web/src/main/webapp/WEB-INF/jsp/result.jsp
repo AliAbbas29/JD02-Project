@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>SearchResult</title>
@@ -26,19 +27,19 @@
         <th>Subject</th>
         <th>Specialization</th>
         <th>City</th>
-        <th>Name</th>
-        <th>Flat</th>
+        <th>Street</th>
+        <th>Office</th>
         <th>Instructor</th>
     </tr>
-<c:forEach items="${requestScope.courses}" var="resultlist">
+<c:forEach items="${requestScope.courses}" var="course">
     <tr>
-        <td>${resultlist.id}</td>
-        <td>${resultlist.subject}</td>
-        <td>${resultlist.specialization}</td>
-        <td>${resultlist.address.city}</td>
-        <td>${resultlist.address.street}</td>
-        <td>${resultlist.address.flat}</td>
-        <td>${resultlist.address.instructor}</td>
+        <td>${course.id}</td>
+        <td>${course.subject}</td>
+        <td>${course.specialization}</td>
+        <td>${course.address.city}</td>
+        <td>${course.address.street}</td>
+        <td>${course.address.flat}</td>
+        <td>${course.instructor}</td>
     </tr>
 </c:forEach>
 </table>
