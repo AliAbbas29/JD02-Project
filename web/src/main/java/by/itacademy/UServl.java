@@ -26,7 +26,7 @@ public class UServl extends HttpServlet {
         Integer limit = Integer.parseInt(req.getParameter("dropdown4"));
         List<Course> courses = new SomeService().findByFilter(subject, specialization, city, offset, limit);
         int noOfPages = (int) Math.ceil(new SomeService().getNoOfRecords(courses) / limit);
-        req.setAttribute("instructors", courses);
+        req.setAttribute("courses", courses);
         req.setAttribute("noOfPages", noOfPages);
         req.setAttribute("currentPage", page);
         req.getRequestDispatcher("WEB-INF/jsp/result.jsp").forward(req, resp);
