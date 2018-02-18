@@ -4,10 +4,16 @@ import by.itacademy.config.ServiceConfig;
 import by.itacademy.entity.Course;
 import by.itacademy.entity.Subject;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@Transactional
 public class SomeService {
+
+
     //    public List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
 //        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 //        Session session = sessionFactory.openSession();
@@ -24,12 +30,22 @@ public class SomeService {
 //        sessionFactory.close();
 //        return courses;
 //    }
+//
+////    public static void main(String[] args) {
+////
+////        System.out.println(getNoOfRecords(new SomeService().findByFilter(Subject.Programming, "java", "London", 0, 5)));
+////    }
+//
 //    public int getNoOfRecords(List<Course> courses) {
 //        return courses.size();
 //    }
+
+
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServiceConfig.class);
-        List<Course> courses = context.getBean(CourseFilterServiceImpl.class).findByFilter(Subject.Programming, "java", "London", 0, 5);
+        CourseFilterService service = context.getBean(CourseFilterService.class);
+        List<Course> courses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
         courses.forEach(System.out::println);
     }
+
 }

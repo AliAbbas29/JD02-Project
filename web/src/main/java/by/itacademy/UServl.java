@@ -1,11 +1,9 @@
 package by.itacademy;
 
-import by.itacademy.config.DatabaseConfig;
 import by.itacademy.config.ServiceConfig;
 import by.itacademy.entity.Course;
 import by.itacademy.entity.Subject;
-import by.itacademy.service.CourseFilterServiceImpl;
-import by.itacademy.service.SomeService;
+import by.itacademy.service.CourseFilterService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletException;
@@ -30,8 +28,9 @@ public class UServl extends HttpServlet {
         String city = req.getParameter("dropdown2");
         Integer offset = Integer.parseInt(req.getParameter("dropdown3"));
         Integer limit = Integer.parseInt(req.getParameter("dropdown4"));
-        List<Course> courses = context.getBean(CourseFilterServiceImpl.class).findByFilter(subject, specialization, city, offset, limit);
-        int noOfPages = (int) Math.ceil(context.getBean(CourseFilterServiceImpl.class).getNoOfRecords(courses) / limit);
+        CourseFilterService service = context.getBean(CourseFilterService.class);
+        List<Course> courses = service.findByFilter(subject, specialization, city, offset, limit);
+        int noOfPages = (int) Math.ceil(service.getNoOfRecords(courses) / limit);
         req.setAttribute("courses", courses);
         req.setAttribute("noOfPages", noOfPages);
         req.setAttribute("currentPage", page);
