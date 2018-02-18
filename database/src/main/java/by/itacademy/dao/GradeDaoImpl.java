@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class GradeDaoImpl extends BaseDaoImpl<Grade> {
+public class GradeDaoImpl extends BaseDaoImpl<Grade> implements GradeDao {
     @Override
     protected Class<Grade> getEntityClass() {
         return Grade.class;

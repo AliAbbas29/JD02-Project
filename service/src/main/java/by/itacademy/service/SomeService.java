@@ -1,13 +1,10 @@
 package by.itacademy.service;
 
 import by.itacademy.config.ServiceConfig;
-import by.itacademy.entity.Course;
-import by.itacademy.entity.Subject;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Service
 @Transactional
@@ -43,9 +40,9 @@ public class SomeService {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServiceConfig.class);
-        CourseFilterService service = context.getBean(CourseFilterService.class);
-        List<Course> courses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
-        courses.forEach(System.out::println);
+//        CourseFilterService service = context.getBean(CourseFilterService.class);
+//        List<Course> courses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
+//        courses.forEach(System.out::println);
     }
 
 }

@@ -4,9 +4,11 @@ package by.itacademy.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 
