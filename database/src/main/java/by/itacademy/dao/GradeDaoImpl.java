@@ -1,8 +1,11 @@
 package by.itacademy.dao;
 
 import by.itacademy.entity.Grade;
+import org.springframework.stereotype.Repository;
 
-public class GradeDao extends BaseDao<Grade> {
+
+@Repository
+public class GradeDaoImpl extends BaseDaoImpl<Grade> {
     @Override
     protected Class<Grade> getEntityClass() {
         return Grade.class;

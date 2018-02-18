@@ -2,8 +2,10 @@ package by.itacademy.dao;
 
 
 import by.itacademy.entity.InstructorLang;
+import org.springframework.stereotype.Repository;
 
-public class InstructorLangDao extends BaseDao<InstructorLang> {
+@Repository
+public class InstructorLangDaoImpl extends BaseDaoImpl<InstructorLang> {
     @Override
     protected Class<InstructorLang> getEntityClass() {
         return InstructorLang.class;

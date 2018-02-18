@@ -2,8 +2,10 @@ package by.itacademy.dao;
 
 
 import by.itacademy.entity.Review;
+import org.springframework.stereotype.Repository;
 
-public class ReviewDao extends BaseDao<Review> {
+@Repository
+public class ReviewDaoImpl extends BaseDaoImpl<Review> {
     @Override
     protected Class<Review> getEntityClass() {
         return Review.class;
