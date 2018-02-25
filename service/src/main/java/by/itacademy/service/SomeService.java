@@ -40,6 +40,8 @@ public class SomeService {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServiceConfig.class);
+//        ipDao.findAll().forEach(System.out::println);
+//        InstructorProgDao ipDao = context.getBean(InstructorProgDao.class);
 //        CourseFilterService service = context.getBean(CourseFilterService.class);
 //        List<Course> courses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
 //        courses.forEach(System.out::println);

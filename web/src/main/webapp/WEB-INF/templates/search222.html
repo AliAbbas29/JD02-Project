@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search page</title>
+</head>
+<body>
+<form th:action="@{/search22}" method="post" th:object="${course}">
+    <label for="subject"> Subject </label>
+    <select   th:type="dropdown"  id="subject">
+        <option  th:each="subjects: ${allSubjectsModel}"
+                 th:value="${subjects}"
+                 th:text="${subjects}"
+                 th:field="*{subject}">
+        </option>
+    </select>
+    <br>
+    <label for="specialization"> Specialization </label>
+    <input th:type="text" th:field="*{specialization}" id="specialization">
+    <br>
+    <label for="city"> City </label>
+    <select th:field="*{address.city}" th:type="dropdown" id="city">
+        <option value="Delhi"> Delhi</option>
+        <option value="London"> London</option>
+        <option value="Minsk"> Minsk</option>
+        <option value="Moscow"> Moscow</option>
+        <option value="Rom"> Rom</option>
+    </select>
+    <br>
+    <label for="offset"> Skip rows </label>
+    <select th:type="dropdown" id="offset">
+        <option value="0"> 0</option>
+        <option value="1"> 1</option>
+        <option value="2"> 2</option>
+        <option value="3"> 3</option>
+    </select>
+    <br>
+    <label for="limit"> Skip rows </label>
+    <select th:type="dropdown" id="limit">
+        <option value="0"> 1</option>
+        <option value="1"> 2</option>
+        <option value="2"> 3</option>
+        <option value="3"> 4</option>
+    </select>
+    <br>
+    <button th:type="submit" id="tryButton">Try</button>
+</form>
+</body>
+</html>
