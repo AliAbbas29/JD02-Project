@@ -5,9 +5,9 @@
     <title>Search page</title>
 </head>
 <body>
-<form th:action="@{/search22}" method="post" th:object="${course}">
+<form th:action="@{/search}" method="post" th:object="${course}">
     <label for="subject"> Subject </label>
-    <select   th:type="dropdown"  id="subject">
+    <select   th:type="dropdown"  id="subject" name="subject">
         <option  th:each="subjects: ${allSubjectsModel}"
                  th:value="${subjects}"
                  th:text="${subjects}"
@@ -16,10 +16,10 @@
     </select>
     <br>
     <label for="specialization"> Specialization </label>
-    <input th:type="text" th:field="*{specialization}" id="specialization">
+    <input th:type="text" th:field="*{specialization}" id="specialization" name="specialization">
     <br>
     <label for="city"> City </label>
-    <select th:field="*{address.city}" th:type="dropdown" id="city">
+    <select th:field="*{address.city}" th:type="dropdown" id="city" name="city">
         <option value="Delhi"> Delhi</option>
         <option value="London"> London</option>
         <option value="Minsk"> Minsk</option>
@@ -28,15 +28,15 @@
     </select>
     <br>
     <label for="offset"> Skip rows </label>
-    <select th:type="dropdown" id="offset">
+    <select th:type="dropdown" id="offset" name="offset">
         <option value="0"> 0</option>
         <option value="1"> 1</option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>
     </select>
     <br>
-    <label for="limit"> Skip rows </label>
-    <select th:type="dropdown" id="limit">
+    <label for="limit"> Number of entries </label>
+    <select th:type="dropdown" id="limit" name="limit">
         <option value="0"> 1</option>
         <option value="1"> 2</option>
         <option value="2"> 3</option>
