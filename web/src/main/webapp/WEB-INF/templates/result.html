@@ -5,16 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<h2>YO THERE!</h2>
-<!--<h2 th:each="filteredCou: ${filteredCourses}"-->
-    <!--th:value="${filteredCou}"-->
-    <!--th:text="${filteredCou}">-->
-<!--</h2>-->
-<select th:type="dropdown" id="filters" name="filters">
-    <option th:each="filteredCou: ${filteredCourse}"
-            th:value="${filteredCou}"
-            th:text="${filteredCou}">>
-    </option>
-</select>
+<table border="1" cellpadding="5" cellspacing="5">
+    <tr>
+        <th>Subject</th>
+        <th>Specialization</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Office</th>
+        <th>Instructor</th>
+    </tr>
+<tr th:each="filteredCou: ${filteredCourse}"
+    th:value="${filteredCou}">
+    <td th:text="${filteredCou.subject}"></td>
+    <td th:text="${filteredCou.specialization}"></td>
+    <td th:text="${filteredCou.address.city}"></td>
+    <td th:text="${filteredCou.address.street}"></td>
+    <td th:text="${filteredCou.address.flat}"></td>
+    <td th:text="${filteredCou.instructor}"></td>
+</tr>
 </body>
 </html>
