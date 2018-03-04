@@ -1,9 +1,11 @@
 package by.itacademy.dao;
 
 
+import org.springframework.data.repository.Repository;
+
 import java.util.List;
 
-public interface BaseDao<T> {
+public interface BaseDao<T> extends Repository<T, Integer> {
 
     void save(T entity);
 
@@ -14,4 +16,5 @@ public interface BaseDao<T> {
     T findById(int id);
 
     List<T> findAll();
+
 }

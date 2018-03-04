@@ -1,4 +1,5 @@
 package by.itacademy.config;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,11 +17,11 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = {"by.itacademy.dao", "by.itacademy.service"})
+//@ComponentScan(basePackages = {"by.itacademy.dao"})
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "by.itacademy.dao")
-public class ServiceConfig {
+public class Config {
 
     @Value("${jdbc.driver}")
     private String driverName;
