@@ -20,7 +20,7 @@ import java.util.Properties;
 //@ComponentScan(basePackages = {"by.itacademy.dao"})
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "by.itacademy.dao")
+@EnableJpaRepositories(basePackages = "by.itacademy.repository")
 public class Config {
 
     @Value("${jdbc.driver}")

@@ -1,11 +1,10 @@
 package by.itacademy.dao;
 
 
-import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface BaseDao<T> extends Repository<T, Integer> {
+public interface BaseDao<T> {
 
     void save(T entity);
 
