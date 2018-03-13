@@ -26,8 +26,11 @@
 </table>
 
 <form method="post" th:action="${nextPage}">
+    <input type="text" th:field="pageNumber" th:value="${nextPage}">
     <button th:type="submit" id="page">Next page</button>
 </form>
 
+<!--<a th:href="@{/search(nextPage=${nextPage})}">Next Page</a>-->
+<!--/search?nextPage=xxx-->
 </body>
 </html>
