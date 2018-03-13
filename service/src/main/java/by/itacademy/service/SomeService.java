@@ -1,7 +1,5 @@
 package by.itacademy.service;
 
-import by.itacademy.config.ServiceConfig;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -39,7 +37,7 @@ public class SomeService {
 
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServiceConfig.class);
+        //AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServiceConfig.class);
 //        ipDao.findAll().forEach(System.out::println);
 //        InstructorProgDao ipDao = context.getBean(InstructorProgDao.class);
 //        CourseFilterService service = context.getBean(CourseFilterService.class);

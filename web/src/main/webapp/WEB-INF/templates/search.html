@@ -26,20 +26,15 @@
         <option value="Rom"> Rom</option>
     </select>
     <br>
-    <label for="offset"> Skip rows </label>
-    <select th:type="dropdown" id="offset" name="offset">
-        <option value="0"> 0</option>
-        <option value="1"> 1</option>
-        <option value="2"> 2</option>
-        <option value="3"> 3</option>
-    </select>
+    <label for="offset"> Page number </label>
+    <input th:type="text" id="offset" name="pageNumber"/>
     <br>
     <label for="limit"> Number of entries </label>
     <select th:type="dropdown" id="limit" name="limit">
-        <option value="0"> 1</option>
-        <option value="1"> 2</option>
-        <option value="2"> 3</option>
-        <option value="3"> 4</option>
+        <option value="1"> 1</option>
+        <option value="2"> 2</option>
+        <option value="3"> 3</option>
+        <option value="4"> 4</option>
     </select>
     <br>
     <button th:type="submit" id="tryButton">Try</button>

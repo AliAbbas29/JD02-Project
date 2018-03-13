@@ -14,14 +14,20 @@
         <th>Office</th>
         <th>Instructor</th>
     </tr>
-<tr th:each="filteredCou: ${filteredCourse}"
-    th:value="${filteredCou}">
-    <td th:text="${filteredCou.subject}"></td>
-    <td th:text="${filteredCou.specialization}"></td>
-    <td th:text="${filteredCou.address.city}"></td>
-    <td th:text="${filteredCou.address.street}"></td>
-    <td th:text="${filteredCou.address.flat}"></td>
-    <td th:text="${filteredCou.instructor}"></td>
-</tr>
+    <tr th:each="filteredCou: ${filteredCourse}"
+        th:value="${filteredCou}">
+        <td th:text="${filteredCou.subject}"></td>
+        <td th:text="${filteredCou.specialization}"></td>
+        <td th:text="${filteredCou.address.city}"></td>
+        <td th:text="${filteredCou.address.street}"></td>
+        <td th:text="${filteredCou.address.flat}"></td>
+        <td th:text="${filteredCou.instructor}"></td>
+    </tr>
+</table>
+
+<form method="post" th:action="${nextPage}">
+    <button th:type="submit" id="page">Next page</button>
+</form>
+
 </body>
 </html>

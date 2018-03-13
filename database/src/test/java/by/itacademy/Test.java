@@ -9,6 +9,8 @@ import by.itacademy.repository.ReviewRepository;
 import by.itacademy.repository.StudentRepository;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,19 +27,21 @@ public class Test {
     @Autowired
     private InstructorProgRepository instructorProgRepository;
 
-
     @Autowired
     private ReviewRepository reviewRepository;
 
     @Autowired
     private GradeRepository gradeRepository;
+
     @Autowired
     private StudentRepository studentRepository;
 
     @org.junit.Test
     public void test() {
-        System.out.println(reviewRepository.findById(1));
-        System.out.println(gradeRepository.findById(1));
-        System.out.println(studentRepository.findById(1));
+        PageRequest pageRequest = new PageRequest(0,1);
+        System.out.println(courseRepository.findAll(pageRequest));
+        System.out.println(pageRequest.getPageNumber());
+        System.out.println(pageRequest.next().getPageNumber());
+        System.out.println(pageRequest.next().getPageNumber());
     }
 }
