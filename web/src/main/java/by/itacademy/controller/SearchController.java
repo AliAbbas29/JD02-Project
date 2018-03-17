@@ -42,7 +42,7 @@ public class SearchController {
 
 
     @GetMapping("/search")
-    public String searchPage(@RequestParam int nextPage) {
+    public String searchPage() {
         return "search";
     }
 
@@ -51,7 +51,7 @@ public class SearchController {
         //model.addAttribute("filteredCourse", service.findByFilter(subject, specialization, city, offset, limit));
         Pageable pageRequest = PageRequest.of(pageNumber, limit);
         model.addAttribute("filteredCourse", courseRepository.findByFilter(subject, specialization, city, pageRequest));
-        model.addAttribute("nextPage",pageRequest.next());
+        model.addAttribute("nextPage", pageRequest.next());
         return "result";
     }
 
@@ -61,7 +61,7 @@ public class SearchController {
     }
 
     @PostMapping("/nextpage")
-    public String nextPage(){
+    public String nextPage() {
         return "result";
     }
 }

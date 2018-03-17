@@ -24,7 +24,7 @@ public class CourseFilterServiceImpl implements CourseFilterService {
 
     @Override
     public List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
-        List<Course> courses = sessionFactory.getCurrentSession().createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit",Course.class)
+        List<Course> courses = sessionFactory.getCurrentSession().createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit", Course.class)
                 .setParameter("subj", subject)
                 .setParameter("spec", specialization)
                 .setParameter("cit", city)

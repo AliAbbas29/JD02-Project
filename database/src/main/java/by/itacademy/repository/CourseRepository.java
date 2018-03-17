@@ -7,9 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
-import java.util.List;
-
-public interface CourseRepository extends Repository<Course, Integer>{
+public interface CourseRepository extends Repository<Course, Integer> {
     void save(Course course);
 
     void delete(Course course);
