@@ -7,6 +7,7 @@ import by.itacademy.repository.CourseRepository;
 import by.itacademy.repository.GradeRepository;
 import by.itacademy.repository.InstructorLangRepository;
 import by.itacademy.repository.InstructorProgRepository;
+import by.itacademy.repository.InstructorRepository;
 import by.itacademy.repository.ReviewRepository;
 import by.itacademy.repository.StudentRepository;
 import by.itacademy.repository.UserRepository;
@@ -42,6 +43,9 @@ public class Test {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private InstructorRepository instructorRepository;
+
     @org.junit.Test
     public void test() {
 //        PageRequest pageRequest = new PageRequest(0,1);
@@ -53,6 +57,8 @@ public class Test {
        User user = userRepository.findById(1);
         Role role = user.getRole();
         System.out.println(role.getName());
+        instructorRepository.findAll().forEach(System.out::println);
+
 
     }
 }

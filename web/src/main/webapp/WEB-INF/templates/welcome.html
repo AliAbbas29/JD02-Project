@@ -5,11 +5,18 @@
     <title>Welcome page</title>
 </head>
 <body>
-<h2>Welcome to our academy!</h2>
-<a href="search">Login</a>
-<a href="result">My profile</a>
-<a href="search">Logout</a>
-<!--<a th:href="@{/search(nextPage=${nextPage})}">Next Page</a>-->
-<!--/search?nextPage=xxx-->
+<a href="search">Search</a>
+<a href="/result">Result</a>
+<a href="/login" th:if="${#authorization.expression('!authenticated')}">Login</a>
+<a href="register" th:if="${#authorization.expression('!authenticated')}">Register</a>
+<h2 th:text="${#authentication.name}">Principal</h2>
+<form th:action="@{/logout}" method="post">
+    <button type="submit" th:if="${#authorization.expression('authenticated')}">LogoutButton</button>
+</form>
+
+<form th:action="@{/courses}" method="post">
+    <button type="submit" >Our courses</button>
+</form>
+
 </body>
 </html>

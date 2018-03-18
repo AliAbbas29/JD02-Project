@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" cellpadding="5" cellspacing="5">
+    <tr>
+        <th>Subject</th>
+        <th>Specialization</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Office</th>
+        <th>Instructor</th>
+    </tr>
+    <tr th:each="filteredCou:${allCourses}"
+        th:value="${filteredCou}">
+        <td th:text="${filteredCou.subject}"></td>
+        <td th:text="${filteredCou.specialization}"></td>
+        <td th:text="${filteredCou.address.city}"></td>
+        <td th:text="${filteredCou.address.street}"></td>
+        <td th:text="${filteredCou.address.flat}"></td>
+        <td th:text="${filteredCou.instructor}"></td>
+    </tr>
+</table>
+
+<form th:action="@{/deletePage}" method="post" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit" >Delete</button>
+</form>
+<form th:action="@{/editPage}" method="post" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
+    <button type="submit" >Edit</button>
+</form>
+<form th:action="@{/addPage}" method="post">
+    <button type="submit" >Add</button>
+</form>
+</body>
+</html>

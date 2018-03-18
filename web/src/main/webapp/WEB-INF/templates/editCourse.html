@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course editing page</title>
+</head>
+<body>
+<table border="1" cellpadding="5" cellspacing="5">
+    <tr>
+        <th>Subject</th>
+        <th>Specialization</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Office</th>
+        <th>Instructor</th>
+    </tr>
+    <tr th:value="${courseToEdit}" th:name="courseToEdit">
+        <td th:text="${courseToEdit.subject}"></td>
+        <td th:text="${courseToEdit.specialization}"></td>
+        <td th:text="${courseToEdit.address.city}"></td>
+        <td th:text="${courseToEdit.address.street}"></td>
+        <td th:text="${courseToEdit.address.flat}"></td>
+        <td th:text="${courseToEdit.instructor}"></td>
+    </tr>
+</table>
+<br>
+<form th:action="@{/editCourse}" method="post" th:object="${corse}">
+    <label for="subject"> Subject </label>
+    <select   th:type="dropdown"  id="subject" name="subject">
+        <option  th:each="subjects: ${allSubjectsModel}"
+                 th:value="${subjects}"
+                 th:text="${subjects}">
+        </option>
+    </select>
+    <br>
+    <label for="specialization"> Specialization </label>
+    <input th:type="text" id="specialization" name="specialization">
+    <br>
+    <label for="city"> City </label>
+    <select th:type="dropdown" id="city" name="city">
+        <option value="Delhi"> Delhi</option>
+        <option value="London"> London</option>
+        <option value="Minsk"> Minsk</option>
+        <option value="Moscow"> Moscow</option>
+        <option value="Rom"> Rom</option>
+    </select>
+    <br>
+    <label for="street"> Street </label>
+    <input th:type="text" id="street" name="street">
+    <br>
+    <label for="office"> Office </label>
+    <input th:type="text" id="office" name="office">
+    <br>
+    <button th:type="submit" id="comeButton">It's time for changing!</button>
+    <input th:type="hidden" id="courseToExport" name="courseToExport" th:value="${courseToEdit.getId()}">
+    <br>
+</form>
+</body>
+</html>

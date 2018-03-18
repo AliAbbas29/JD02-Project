@@ -14,6 +14,10 @@ INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,co
 INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,courses.instructors.specialization,courses.instructors.experience_years) VALUES ('Kate','Language','english',3);
 INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,courses.instructors.specialization,courses.instructors.experience_years) VALUES ('Sam','Language','french',1);
 INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Programming','java','London','Baker 22','44','1');
-INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Programming','net','Minsk','Bryl 54','701','1');
-INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Language','english','Minsk','Green 12','93','2');
-INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Language','french','Minsk','Oktyabr 2','75','2');
+INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Programming','net','Minsk','Bryl 54','701','2');
+INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Language','english','Minsk','Green 12','93','3');
+INSERT INTO course (courses.course.subject,courses.course.specialization,courses.course.location_city,courses.course.location_street,courses.course.location_office,courses.course.instructor_id) VALUES ('Language','french','Minsk','Oktyabr 2','75','4');
+INSERT INTO roles (roles.name) VALUES ('ADMIN');
+INSERT INTO roles (roles.name) VALUES ('PROFESSOR');
+INSERT INTO roles (roles.name) VALUES ('STUDENT');
+INSERT INTO users (users.name, users.password, users.role_id) VALUES ('ADMIN', 'ADMIN', 1);

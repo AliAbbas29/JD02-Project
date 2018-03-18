@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course deleting page</title>
+</head>
+<body>
+<form th:action="@{/deleteCourse}" method="post" th:object="${corse}">
+    <label for="courseToDelete"> Subject </label>
+    <select   th:type="dropdown"  id="courseToDelete" name="courseToDelete">
+        <option  th:each="courseToDelete: ${allCourses}"
+                 th:value="${courseToDelete.getId()}"
+                 th:text="${courseToDelete}">
+        </option>
+    </select>
+    <br>
+    <button th:type="submit" id="comeButton">DELETE</button>
+</form>
+</body>
+</html>

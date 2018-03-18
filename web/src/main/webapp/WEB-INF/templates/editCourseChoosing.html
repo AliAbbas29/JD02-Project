@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose course to edit</title>
+</head>
+<body>
+<form th:action="@{/editCourseChoosing}" method="post" th:object="${corse}">
+    <label for="courseToEdit"> Subject </label>
+    <select   th:type="dropdown"  id="courseToEdit" name="courseToEdit">
+        <option  th:each="courseToDelete: ${allCourses}"
+                 th:value="${courseToDelete.getId()}"
+                 th:text="${courseToDelete}">
+        </option>
+    </select>
+    <br>
+    <button th:type="submit" id="comeButton">It's time for some editing!</button>
+</form>
+</body>
+</html>

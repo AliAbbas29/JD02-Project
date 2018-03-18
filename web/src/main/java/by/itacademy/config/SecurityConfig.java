@@ -28,6 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .permitAll()
                 .and()
                     .formLogin()
+                        .loginPage("/login")
+                .and()
+                    .logout()
+                        .logoutSuccessUrl("/")
                 .and()
                     .userDetailsService(userService);
     }
