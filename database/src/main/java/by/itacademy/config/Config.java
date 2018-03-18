@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-//@ComponentScan(basePackages = {"by.itacademy.dao"})
+//@ComponentScan(basePackages = {"by.itacademy"})
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "by.itacademy.repository")

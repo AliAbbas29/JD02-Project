@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Welcome page</title>
 </head>
 <body>
 <h2>Welcome to our academy!</h2>
+<a href="search">Login</a>
+<a href="result">My profile</a>
+<a href="search">Logout</a>
+<!--<a th:href="@{/search(nextPage=${nextPage})}">Next Page</a>-->
+<!--/search?nextPage=xxx-->
 </body>
 </html>

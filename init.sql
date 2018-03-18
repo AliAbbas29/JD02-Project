@@ -7,6 +7,8 @@ CREATE TABLE students (id INT AUTO_INCREMENT, name VARCHAR(20) UNIQUE NOT NULL, 
 CREATE TABLE grades (id INT AUTO_INCREMENT, value INT, student_id INT, course_id INT, PRIMARY KEY (id), FOREIGN KEY (student_id)REFERENCES students(id),FOREIGN KEY (course_id)REFERENCES course(id));
 CREATE TABLE reviews (id INT AUTO_INCREMENT, review VARCHAR(60), student_id INT, course_id INT, PRIMARY KEY (id), FOREIGN KEY (student_id)REFERENCES students(id),FOREIGN KEY (course_id)REFERENCES course(id));
 CREATE TABLE students_courses (student_id INT, course_id INT, PRIMARY KEY (student_id,course_id), FOREIGN KEY (student_id)REFERENCES students(id), FOREIGN KEY (course_id)REFERENCES course(id));
+CREATE TABLE roles (id INT AUTO_INCREMENT, name VARCHAR(20) UNIQUE NOT NULL, PRIMARY KEY (id));
+CREATE TABLE users (id INT AUTO_INCREMENT, name VARCHAR(20) UNIQUE NOT NULL, password VARCHAR(50), role_id INT, PRIMARY KEY (id), FOREIGN KEY (role_id) REFERENCES roles(id));
 INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,courses.instructors.specialization,courses.instructors.experience_years) VALUES ('Jhon','Programming','java',13);
 INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,courses.instructors.specialization,courses.instructors.experience_years) VALUES ('Kyke','Programming','net',5);
 INSERT INTO instructors (courses.instructors.name,courses.instructors.subject,courses.instructors.specialization,courses.instructors.experience_years) VALUES ('Kate','Language','english',3);
