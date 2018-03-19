@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade course page</title>
+</head>
+<body>
+<form th:action="@{/gradeStudent}" method="post">
+    <label for="courseToGrade"> Choose course</label>
+    <select   th:type="dropdown"  id="courseToGrade" name="courseToGrade">
+        <option  th:each="courseToGrade: ${allCourses}"
+                 th:value="${courseToGrade.getId()}"
+                 th:text="${courseToGrade}">
+        </option>
+    </select>
+    <br>
+    <button th:type="submit" id="comeButton">Next</button>
+</form>
+</body>
+</html>

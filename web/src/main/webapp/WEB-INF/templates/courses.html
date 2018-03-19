@@ -37,5 +37,8 @@
 <form th:action="@{/takePartPage}" method="post">
     <button type="submit" >Take part in course</button>
 </form>
+<form th:action="@{/reviewPage}" method="post" th:if="${#authorization.expression('authenticated')}">
+    <button type="submit" >Make a review</button>
+</form>
 </body>
 </html>

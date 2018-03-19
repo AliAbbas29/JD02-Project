@@ -32,8 +32,8 @@
     <label for="office"> Office </label>
     <input th:type="text" id="office" name="office">
     <br>
-    <label for="instructor_id"> Instructor </label>
-    <select   th:type="dropdown"  id="instructor_id" name="instructor_id">
+    <label for="instructorId"> Instructor </label>
+    <select   th:type="dropdown"  id="instructorId" name="instructorId">
         <option  th:each="instructors: ${allInstructors}"
                  th:value="${instructors.getId()}"
                  th:text="${instructors}">

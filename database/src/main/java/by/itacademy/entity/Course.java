@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Fetch;
-import org.springframework.data.repository.cdi.Eager;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -20,8 +20,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,8 +30,13 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "course")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "myCache")
 @ToString(exclude = {"students", "grades", "reviews"})
 public class Course extends BaseEntity {
+
+    @Version
+    @Column(name = "version")
+    private Integer version;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "subject", nullable = false)
@@ -60,10 +65,10 @@ public class Course extends BaseEntity {
     @ManyToMany(mappedBy = "studentsCourses", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Student> students = new HashSet<>();
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
     private Set<Grade> grades = new HashSet<>();
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
     private Set<Review> reviews = new HashSet<>();
 
     public void addStudent(Student student) {

@@ -23,16 +23,16 @@ public class Review extends BaseEntity {
     private String review;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
-    public Review(String review, Student student, Course course) {
+    public Review(String review, User user, Course course) {
         this.review = review;
-        this.student = student;
+        this.user = user;
         this.course = course;
     }
 }

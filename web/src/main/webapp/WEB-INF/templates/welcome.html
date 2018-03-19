@@ -6,7 +6,7 @@
 </head>
 <body>
 <a href="search">Search</a>
-<a href="/result">Result</a>
+<!--<a href="/result">Result</a>-->
 <a href="/login" th:if="${#authorization.expression('!authenticated')}">Login</a>
 <a href="register" th:if="${#authorization.expression('!authenticated')}">Register</a>
 <h2 th:text="${#authentication.name}">Principal</h2>
@@ -15,7 +15,11 @@
 </form>
 
 <form th:action="@{/courses}" method="post">
-    <button type="submit" >Our studentsCourses</button>
+    <button type="submit" >Our Courses</button>
+</form>
+
+<form th:action="@{/gradeCourse}" method="post" th:if="${#authorization.expression('hasAuthority(''PROFESSOR'')')}">
+    <button type="submit" >Grade</button>
 </form>
 
 </body>

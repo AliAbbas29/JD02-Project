@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.persistence.OptimisticLockException;
 import java.util.List;
 
 @Controller
@@ -106,6 +107,7 @@ public class CourseController {
     @PostMapping("/editCourseChoosing")
     public String showEditPage(Model model, Integer courseToEdit) {
         model.addAttribute("courseToEdit", courseRepository.findById(courseToEdit));
+        model.addAttribute("courseVersion", courseRepository.findById(courseToEdit).getVersion());
         System.out.println(courseToEdit);
         return "editCourse";
     }
@@ -128,9 +130,10 @@ public class CourseController {
     }
 
     @PostMapping("/editCourse")
-    public String editCourse(Subject subject, String specialization, String city, String street, Integer office, Integer courseToExport) {
-//        courseRepository.deleteById(courseToDelete);
+    public String editCourse(Subject subject, String specialization, String city, String street, Integer office, Integer courseToExport, Integer courseVersion) {
         Course course = courseRepository.findById(courseToExport);
+        System.out.println(course);
+        Integer newVersion = course.getVersion();
         course.setSubject(subject);
         course.getAddress().setCity(city);
         if (street != null && office != null) {
@@ -138,6 +141,12 @@ public class CourseController {
         }
         if (specialization != null) {
             course.setSpecialization(specialization);
+        }
+        Course course1 = courseRepository.findById(courseToExport);
+        System.out.println(course1);
+        System.out.println(courseVersion + "-1     2- " + newVersion);
+        if (!newVersion.equals(courseVersion)) {
+            throw new OptimisticLockException("That's another entity! (OPTIMISTIC LOCK)");
         }
         return "welcome";
     }
@@ -148,12 +157,12 @@ public class CourseController {
     }
 
     @PostMapping("/addCourse")
-    public String addCourse(Subject subject, String specialization, String city, String street, Integer office, Integer instructor_id) {
+    public String addCourse(Subject subject, String specialization, String city, String street, Integer office, Integer instructorId) {
         Course course = new Course();
         course.setSubject(subject);
         course.setSpecialization(specialization);
         course.setAddress(new Address(city, street, office));
-        course.setInstructor(instructorRepository.findById(instructor_id));
+        course.setInstructor(instructorRepository.findById(instructorId));
         courseRepository.save(course);
         return "welcome";
     }
@@ -169,7 +178,7 @@ public class CourseController {
         student.setFirstName(firstName);
         student.setLastName(lastName);
         student.setPhonenumber(phonenumber);
-        student.setAddress(new Address(city,street,flat));
+        student.setAddress(new Address(city, street, flat));
         studentRepository.save(student);
         student.addCourse(courseRepository.findById(courseToTakePart));
         System.out.println(student.getStudentsCourses());

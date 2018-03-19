@@ -4,8 +4,6 @@ import by.itacademy.entity.Course;
 import by.itacademy.entity.Subject;
 import by.itacademy.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,9 +46,9 @@ public class SearchController {
     @PostMapping("/search")
     public String searchField(Model model, Subject subject, String specialization, String city, Integer pageNumber, Integer limit) {
         //model.addAttribute("filteredCourse", service.findByFilter(subject, specialization, city, offset, limit));
-        Pageable pageRequest = new PageRequest(pageNumber, limit);
-        model.addAttribute("filteredCourse", courseRepository.findByFilter(subject, specialization, city, pageRequest));
-        model.addAttribute("nextPage", pageRequest.next());
+//        Pageable pageRequest = new PageRequest(pageNumber, limit);
+        model.addAttribute("filteredCourse", courseRepository.findByFilter(subject, specialization, city));
+//        model.addAttribute("nextPage", pageRequest.next());
         return "result";
     }
 

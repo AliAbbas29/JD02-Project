@@ -25,7 +25,7 @@
 </table>
 <br>
 <form th:action="@{/editCourse}" method="post" th:object="${corse}">
-    <label for="subject"> Choose course to EDIT </label>
+    <label for="subject"> Subject </label>
     <select   th:type="dropdown"  id="subject" name="subject">
         <option  th:each="subjects: ${allSubjectsModel}"
                  th:value="${subjects}"
@@ -53,6 +53,7 @@
     <br>
     <button th:type="submit" id="comeButton">It's time for changing!</button>
     <input th:type="hidden" id="courseToExport" name="courseToExport" th:value="${courseToEdit.getId()}">
+    <input th:type="hidden" id="courseVersion" name="courseVersion" th:value="${courseVersion}">
     <br>
 </form>
 </body>

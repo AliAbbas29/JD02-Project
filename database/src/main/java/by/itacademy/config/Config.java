@@ -46,6 +46,18 @@ public class Config {
     @Value("${hibernate.creation_policy}")
     private String hibernateCreationPolicy;
 
+    @Value("${cache.use_second_level_cache}")
+    private String cacheSecondLevel;
+
+    @Value("${cache.use_query_cache}")
+    private String cacheQueryCache;
+
+    @Value("${hibernate.cache.region.factory_class}")
+    private String cacheFactoryClass;
+
+    @Value("${net.sf.ehcache.configurationResourceName}")
+    private String ehConfig;
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -63,6 +75,10 @@ public class Config {
         properties.setProperty("hibernate.show_sql", hibernateShowSql);
         properties.setProperty("hibernate.format_sql", hibernateFormatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", hibernateCreationPolicy);
+        properties.setProperty("cache.use_second_level_cache", cacheSecondLevel);
+        properties.setProperty("cache.use_query_cache", cacheQueryCache);
+        properties.setProperty("hibernate.cache.region.factory_class", cacheFactoryClass);
+        properties.setProperty("net.sf.ehcache.configurationResourceName", ehConfig);
         return properties;
     }
 

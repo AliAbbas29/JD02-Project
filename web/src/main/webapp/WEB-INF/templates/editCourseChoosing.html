@@ -6,7 +6,7 @@
 </head>
 <body>
 <form th:action="@{/editCourseChoosing}" method="post" th:object="${corse}">
-    <label for="courseToEdit"> Subject </label>
+    <label for="courseToEdit"> Choose course to EDIT </label>
     <select   th:type="dropdown"  id="courseToEdit" name="courseToEdit">
         <option  th:each="courseToDelete: ${allCourses}"
                  th:value="${courseToDelete.getId()}"
