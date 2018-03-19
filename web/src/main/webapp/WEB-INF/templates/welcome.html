@@ -2,6 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Welcome page</title>
 </head>
 <body>
@@ -11,15 +15,15 @@
 <a href="register" th:if="${#authorization.expression('!authenticated')}">Register</a>
 <h2 th:text="${#authentication.name}">Principal</h2>
 <form th:action="@{/logout}" method="post">
-    <button type="submit" th:if="${#authorization.expression('authenticated')}">LogoutButton</button>
+    <button type="submit" th:if="${#authorization.expression('authenticated')}" class="btn btn-danger">LogoutButton</button>
 </form>
 
 <form th:action="@{/courses}" method="post">
-    <button type="submit" >Our Courses</button>
+    <button type="submit" class="btn btn-success">Our Courses</button>
 </form>
 
 <form th:action="@{/gradeCourse}" method="post" th:if="${#authorization.expression('hasAuthority(''PROFESSOR'')')}">
-    <button type="submit" >Grade</button>
+    <button type="submit" class="btn btn-primary">Grade</button>
 </form>
 
 </body>

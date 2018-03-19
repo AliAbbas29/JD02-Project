@@ -2,37 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Taking part in course</title>
 </head>
 <body>
 <form th:action="@{/takePartCourse}" method="post" th:object="${stud}">
+
     <label for="courseToTakePart"> Choose your course </label>
-    <select   th:type="dropdown"  id="courseToTakePart" name="courseToTakePart">
-        <option  th:each="courseToTakePart: ${allCourses}"
-                 th:value="${courseToTakePart.getId()}"
-                 th:text="${courseToTakePart}">
+    <select th:type="dropdown" id="courseToTakePart" name="courseToTakePart">
+        <option th:each="courseToTakePart: ${allCourses}"
+                th:value="${courseToTakePart.getId()}"
+                th:text="${courseToTakePart}">
         </option>
     </select>
+ 
     <br>
+
     <label for="firstName"> FirstName </label>
-    <input th:type="text" id="firstName" name="firstName">
+    <input th:type="text" id="firstName" name="firstName"  >
+
     <br>
+
     <label for="lastName"> LastName </label>
-    <input th:type="text" id="lastName" name="lastName">
+    <input th:type="text" id="lastName" name="lastName"  >
+
     <br>
+
     <label for="phonenumber"> PhoneNumber </label>
-    <input th:type="text" id="phonenumber" name="phonenumber">
+    <input th:type="text" id="phonenumber" name="phonenumber"  >
+
     <br>
+
     <label for="city"> City </label>
-    <input th:type="text" id="city" name="city">
+    <input th:type="text" id="city" name="city"  >
+
     <br>
+
     <label for="street"> Street </label>
-    <input th:type="text" id="street" name="street">
+    <input th:type="text" id="street" name="street"  >
+
     <br>
+
     <label for="flat"> Flat </label>
-    <input th:type="text" id="flat" name="flat">
+    <input th:type="text" id="flat" name="flat"  >
+
     <br>
-    <button th:type="submit" id="comeButton">Done!</button>
+    <button th:type="submit" id="comeButton" class="btn btn-success">Done!</button>
 </form>
 </body>
 </html>
