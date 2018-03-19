@@ -13,17 +13,17 @@ public class SomeService {
 //        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 //        Session session = sessionFactory.openSession();
 //        session.beginTransaction();
-//        List<Course> courses = session.createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit")
+//        List<Course> studentsCourses = session.createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit")
 //                .setParameter("subj", subject)
 //                .setParameter("spec", specialization)
 //                .setParameter("cit", city)
 //                .setFirstResult(offset)
 //                .setMaxResults(limit).getResultList();
-//        courses.forEach(System.out::println);
+//        studentsCourses.forEach(System.out::println);
 //        session.getTransaction().commit();
 //        session.close();
 //        sessionFactory.close();
-//        return courses;
+//        return studentsCourses;
 //    }
 //
 ////    public static void main(String[] args) {
@@ -31,8 +31,8 @@ public class SomeService {
 ////        System.out.println(getNoOfRecords(new SomeService().findByFilter(Subject.Programming, "java", "London", 0, 5)));
 ////    }
 //
-//    public int getNoOfRecords(List<Course> courses) {
-//        return courses.size();
+//    public int getNoOfRecords(List<Course> studentsCourses) {
+//        return studentsCourses.size();
 //    }
 
 
@@ -41,8 +41,8 @@ public class SomeService {
 //        ipDao.findAll().forEach(System.out::println);
 //        InstructorProgDao ipDao = context.getBean(InstructorProgDao.class);
 //        CourseFilterService service = context.getBean(CourseFilterService.class);
-//        List<Course> courses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
-//        courses.forEach(System.out::println);
+//        List<Course> studentsCourses = service.findByFilter(Subject.Programming, "java", "London", 0, 5);
+//        studentsCourses.forEach(System.out::println);
     }
 
 }

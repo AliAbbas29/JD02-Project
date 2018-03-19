@@ -24,17 +24,17 @@
 //
 //    @Override
 //    public List<Course> findByFilter(Subject subject, String specialization, String city, int offset, int limit) {
-//        List<Course> courses = sessionFactory.getCurrentSession().createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit", Course.class)
+//        List<Course> studentsCourses = sessionFactory.getCurrentSession().createQuery("select c from Course c where c.subject =:subj and c.specialization=:spec and c.address.city=:cit", Course.class)
 //                .setParameter("subj", subject)
 //                .setParameter("spec", specialization)
 //                .setParameter("cit", city)
 //                .setFirstResult(offset)
 //                .setMaxResults(limit).getResultList();
-//        return courses;
+//        return studentsCourses;
 //    }
 //
 //    @Override
-//    public int getNoOfRecords(List<Course> courses) {
-//        return courses.size();
+//    public int getNoOfRecords(List<Course> studentsCourses) {
+//        return studentsCourses.size();
 //    }
 //}

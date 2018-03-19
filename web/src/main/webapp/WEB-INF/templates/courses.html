@@ -31,8 +31,11 @@
 <form th:action="@{/editPage}" method="post" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
     <button type="submit" >Edit</button>
 </form>
-<form th:action="@{/addPage}" method="post">
+<form th:action="@{/addPage}" method="post" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}">
     <button type="submit" >Add</button>
+</form>
+<form th:action="@{/takePartPage}" method="post">
+    <button type="submit" >Take part in course</button>
 </form>
 </body>
 </html>

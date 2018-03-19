@@ -8,6 +8,8 @@ import java.util.List;
 public interface StudentRepository extends Repository<Student, Integer> {
     void save(Student student);
 
+    void saveAndFlush(Student student);
+
     void delete(Student student);
 
     Student findById(Integer id);

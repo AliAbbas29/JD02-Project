@@ -7,10 +7,13 @@ import lombok.ToString;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,6 +26,6 @@ import javax.persistence.Table;
 public class Instructor extends BaseEntity {
 
 
-    @OneToOne(mappedBy = "instructor")
-    private Course course;
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER)
+    private Set<Course> course = new HashSet<>();
 }

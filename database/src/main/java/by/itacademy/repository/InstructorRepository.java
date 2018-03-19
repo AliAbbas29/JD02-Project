@@ -8,4 +8,6 @@ import java.util.List;
 public interface InstructorRepository extends Repository<Instructor, Integer> {
 
     List<Instructor> findAll();
+
+    Instructor findById(Integer id);
 }

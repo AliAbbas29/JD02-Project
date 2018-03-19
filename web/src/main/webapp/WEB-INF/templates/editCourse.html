@@ -25,7 +25,7 @@
 </table>
 <br>
 <form th:action="@{/editCourse}" method="post" th:object="${corse}">
-    <label for="subject"> Subject </label>
+    <label for="subject"> Choose course to EDIT </label>
     <select   th:type="dropdown"  id="subject" name="subject">
         <option  th:each="subjects: ${allSubjectsModel}"
                  th:value="${subjects}"

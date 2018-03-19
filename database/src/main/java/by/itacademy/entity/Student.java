@@ -5,8 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,29 +25,33 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "students")
-@ToString(exclude = {"grades", "courses", "reviews"})
+@ToString(exclude = {"grades", "studentsCourses", "reviews"})
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name", unique = true, nullable = false)
-    private String name;
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
 
     @Column(name = "phonenumber")
     private long phonenumber;
 
     private Address address;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "students_courses",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private Set<Course> courses = new HashSet<>();
+    private Set<Course> studentsCourses = new HashSet<>();
 
-    public Student(String name, long phonenumber, Address address) {
-        this.name = name;
+    public Student(String firstName, String lastName, long phonenumber, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phonenumber = phonenumber;
         this.address = address;
     }
@@ -57,6 +63,6 @@ public class Student {
     private Set<Review> reviews = new HashSet<>();
 
     public void addCourse(Course course) {
-        courses.add(course);
+        studentsCourses.add(course);
     }
 }
